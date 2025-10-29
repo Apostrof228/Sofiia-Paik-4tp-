@@ -1,0 +1,26 @@
+class Program
+{
+    static void Main()
+    {
+        Random r = new Random();
+        int liczba = r.Next(1, 101);
+        int proba = 0;
+        int strzal = 0;
+
+        Console.WriteLine("Zgadnij liczbę od 1 do 100");
+
+        while (strzal != liczba)
+        {
+            Console.Write("Podaj liczbę: ");
+            strzal = Convert.ToInt32(Console.ReadLine());
+            proba++;
+
+            if (strzal < liczba)
+                Console.WriteLine("Większa liczba");
+            else if (strzal > liczba)
+                Console.WriteLine("Mniejsza liczba");
+            else
+                Console.WriteLine($"Zgadłeś za {proba} razem");
+        }
+    }
+}

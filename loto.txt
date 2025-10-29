@@ -1,0 +1,21 @@
+class Program
+{
+    static void Main()
+    {
+        Console.WriteLine("Podaj 6 liczb od 1 do 49 (oddzielone spacją):");
+        int[] u = Console.ReadLine().Split().Select(int.Parse).ToArray();
+
+        int[] l = new int[6];
+        Random r = new Random();
+        for (int i = 0; i < 6; i++) l[i] = r.Next(1, 50);
+
+        int t = 0;
+        Console.WriteLine("\nTwoje: " + string.Join(", ", u));
+        Console.WriteLine("Lotto: " + string.Join(", ", l));
+        Console.Write("Trafione: ");
+        for (int i = 0; i < 6; i++)
+            for (int j = 0; j < 6; j++)
+                if (u[i] == l[j]) { Console.Write(u[i] + " "); t++; }
+        Console.WriteLine($"\nLiczba trafień: {t}");
+    }
+}
